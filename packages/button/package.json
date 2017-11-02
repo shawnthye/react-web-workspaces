@@ -25,7 +25,7 @@
   },
   "scripts": {
     "build": "mkdirp build && webpack --progress --colors",
-    "package": "babel index.js --out-dir lib "
+    "~package": "babel index.js --out-dir lib "
   },
   "main": "index.js",
   "devDependencies": {
