@@ -14,6 +14,7 @@
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-react-app": "^3.0.3",
+    "cross-env": "^5.1.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "jtest": "^0.0.1",
     "lerna": "^2.5.1",
