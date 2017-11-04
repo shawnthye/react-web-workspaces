@@ -1,0 +1,11 @@
+{
+  "name": "react-material-components",
+  "description": "Modular and customizable Material Design UI components for the React",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "dependencies": {
+    "@material-react-web/button": "^0.1.0",
+    "@material-react-web/checkbox": "^0.1.0"
+  }
+}
