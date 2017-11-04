@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 
-class Button extends PureComponent {
+class REACTMDButton extends PureComponent {
     static propTypes = {
         id: PropTypes.string
     };
@@ -13,5 +13,5 @@ class Button extends PureComponent {
     }
 }
 
-export {Button};
+export {REACTMDButton};
 

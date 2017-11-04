@@ -20,23 +20,35 @@ module.exports = [{
         publicPath: PUBLIC_PATH,
         filename: '[name]/dist/index.' + (IS_DEV ? '' : 'min.') + 'js',
         libraryTarget: 'umd',
-        library: ['react', '[name]']
+        library: ['rmd', '[name]']
     },
     devtool: DEVTOOL,
     module: {
-        rules: [{
-            test: /\.js$/,
-            exclude: [/(node_modules)/],
-            loader: 'babel-loader',
-            options: {
-                cacheDirectory: true,
-                presets: [
-                    'react-app'
-                ]
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: [/(node_modules)/],
+                loader: 'babel-loader',
+                options: {
+                    cacheDirectory: true,
+                    presets: [
+                        'react-app'
+                    ]
+                },
+            }, {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             }
-        }],
+        ]
     },
-    plugins: [],
+    externals: {
+        react: {
+            root: '_',
+            commonjs2: 'react',
+            commonjs: 'react',
+            amd: 'react'
+        }
+    }
 }];
 
 module.exports.push({
@@ -47,7 +59,7 @@ module.exports.push({
         publicPath: PUBLIC_PATH,
         filename: 'react-material-components/dist/index.' + (IS_DEV ? '' : 'min.') + 'js',
         libraryTarget: 'umd',
-        library: ['react', '[name]']
+        library: ['rmd']
     },
     // See https://github.com/webpack/webpack-dev-server/issues/882
     // Because we only spin up dev servers temporarily, and all of our assets are publicly
@@ -57,16 +69,29 @@ module.exports.push({
     },
     devtool: DEVTOOL,
     module: {
-        rules: [{
-            test: /\.js$/,
-            exclude: [/(node_modules)/],
-            loader: 'babel-loader',
-            options: {
-                cacheDirectory: true,
-                presets: [
-                    'react-app'
-                ]
-            },
-        }],
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: [/(node_modules)/],
+                loader: 'babel-loader',
+                options: {
+                    cacheDirectory: true,
+                    presets: [
+                        'react-app'
+                    ]
+                },
+            }, {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            }
+        ]
+    },
+    externals: {
+        react: {
+            root: '_',
+            commonjs2: 'react',
+            commonjs: 'react',
+            amd: 'react'
+        }
     }
 });

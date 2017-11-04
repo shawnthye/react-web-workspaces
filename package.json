@@ -5,19 +5,18 @@
   "scripts": {
     "build": "cross-env BABEL_ENV=development webpack --progress --colors",
     "build:min": "cross-env BABEL_ENV=production webpack -p --progress --colors",
-    "package": "babel index.js --out-dir lib ",
-    "!postinstall": "yarn build && yarn build:min && node ./scripts/cp-pkgs.js",
+    "!postinstall": "yarn build && yarn build:min",
     "bootstrap": "yarn && lerna bootstrap",
     "clean": "del-cli packages/*/dist && lerna clean --yes",
-    "dist": "yarn && yarn clean && yarn build && yarn build:min",
+    "dist": "yarn clean && yarn build && yarn build:min && yarn",
     "start": "yarn dist && yarn bootstrap && lerna run --scope web start"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-react-app": "^3.0.3",
-    "cp-file": "^5.0.0",
     "cross-env": "^5.1.1",
+    "css-loader": "^0.28.7",
     "del-cli": "^1.1.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "glob": "^7.1.2",

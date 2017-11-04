@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "main": "dist/index.js",
   "dependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "@material/animation": "^0.4.1",
+    "@material/checkbox": "^0.24.0",
+    "@material/ripple": "^0.24.0",
+    "immutable": "^3.8.2"
   }
 }
