@@ -8,10 +8,8 @@ node_modules
 
 # production
 /build
-packages/*/dist/
+packages/*/dist
 !packages/*/dist/index.js
-#!packages/*/dist/
-#packages/*/package.json
 
 # misc
 .idea
