@@ -3,13 +3,13 @@
   "description": "Material Components Web",
   "license": "Apache-2.0",
   "scripts": {
-    "build": "mkdirp build && cross-env BABEL_ENV=development webpack --progress --colors",
-    "build:min": "mkdirp build && cross-env BABEL_ENV=production webpack -p --progress --colors",
+    "build": "cross-env BABEL_ENV=development webpack --progress --colors",
+    "build:min": "cross-env BABEL_ENV=production webpack -p --progress --colors",
     "package": "babel index.js --out-dir lib ",
-    "postinstall": "yarn build && yarn build:min && node ./scripts/cp-pkgs.js",
+    "!postinstall": "yarn build && yarn build:min && node ./scripts/cp-pkgs.js",
     "bootstrap": "yarn && lerna bootstrap",
-    "clean": "del-cli build/** && del-cli packages/*/dist && lerna clean --yes",
-    "dist": "yarn clean && yarn build && yarn build:min && node ./scripts/cp-pkgs.js",
+    "clean": "del-cli packages/*/dist && lerna clean --yes",
+    "dist": "yarn && yarn clean && yarn build && yarn build:min",
     "start": "yarn dist && yarn bootstrap && lerna run --scope web start"
   },
   "devDependencies": {

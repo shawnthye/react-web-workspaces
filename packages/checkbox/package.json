@@ -1,9 +1,9 @@
 {
   "name": "@material-react-web/checkbox",
   "version": "0.1.0",
+  "main": "dist/index.js",
   "dependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
-  },
-  "main": "dist/index.js"
+  }
 }
