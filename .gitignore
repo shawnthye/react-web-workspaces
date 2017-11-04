@@ -9,7 +9,7 @@ node_modules
 # production
 /build
 packages/*/dist
-!packages/*/dist/index.js
+
 
 # misc
 .idea
