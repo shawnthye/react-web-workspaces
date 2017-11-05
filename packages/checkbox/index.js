@@ -37,10 +37,49 @@ export class Checkbox extends PureComponent {
         rippleCss: new ImmutableMap(),
         checkedInternal: this.props.checked,
         disabledInternal: this.props.disabled,
-        indeterminateInternal: this.props.indeterminate
+        indeterminateInternal: this.props.indeterminate,
+        mouseEntered: false
     };
 
     // Here we initialize a foundation class, passing it an adapter which tells it how to
+    // For browser compatibility we extend the default adapter which checks for css variable support.
+    rippleFoundation = new MDCRippleFoundation(Object.assign(MDCRipple.createAdapter(this), {
+        isUnbounded: () => true,
+        isSurfaceActive: () => false,
+        addClass: className => {
+            this.setState(prevState => ({
+                classes: prevState.classes.add(className)
+            }));
+        },
+        removeClass: className => {
+            this.setState(prevState => ({
+                classes: prevState.classes.remove(className)
+            }));
+        },
+        registerInteractionHandler: (evtType, handler) => {
+            this.refs.nativeCb.addEventListener(evtType, handler);
+        },
+        deregisterInteractionHandler: (evtType, handler) => {
+            this.refs.nativeCb.removeEventListener(evtType, handler);
+        },
+        updateCssVariable: (varName, value) => {
+            this.setState(prevState => ({
+                rippleCss: prevState.rippleCss.set(varName, value)
+            }));
+        },
+        computeBoundingRect: () => {
+            const {left, top} = this.refs.root.getBoundingClientRect();
+            const DIM = 40;
+            return {
+                top,
+                left,
+                right: left + DIM,
+                bottom: top + DIM,
+                width: DIM,
+                height: DIM,
+            };
+        },
+    }));
     // work with the React component in an idiomatic way.
     foundation = new MDCCheckboxFoundation({
         addClass: className => this.setState(prevState => ({
@@ -88,60 +127,31 @@ export class Checkbox extends PureComponent {
         isAttachedToDOM: () => Boolean(this.refs.nativeCb),
     });
 
-    // For browser compatibility we extend the default adapter which checks for css variable support.
-    rippleFoundation = new MDCRippleFoundation(Object.assign(MDCRipple.createAdapter(this), {
-        isUnbounded: () => true,
-        isSurfaceActive: () => this.refs.nativeCb[MATCHES](':active'),
-        addClass: className => {
-            this.setState(prevState => ({
-                classes: prevState.classes.add(className)
-            }));
-        },
-        removeClass: className => {
-            this.setState(prevState => ({
-                classes: prevState.classes.remove(className)
-            }));
-        },
-        registerInteractionHandler: (evtType, handler) => {
-            this.refs.nativeCb.addEventListener(evtType, handler);
-        },
-        deregisterInteractionHandler: (evtType, handler) => {
-            this.refs.nativeCb.removeEventListener(evtType, handler);
-        },
-        updateCssVariable: (varName, value) => {
-            this.setState(prevState => ({
-                rippleCss: prevState.rippleCss.set(varName, value)
-            }));
-        },
-        computeBoundingRect: () => {
-            const {left, top} = this.refs.root.getBoundingClientRect();
-            const DIM = 40;
-            return {
-                top,
-                left,
-                right: left + DIM,
-                bottom: top + DIM,
-                width: DIM,
-                height: DIM,
-            };
-        },
-    }));
-
     changeHandler(evt) {
-        this.props.toggleChecked(evt);
+        this.props.onChange(evt);
+    }
+
+    mouseenter(event) {
+        this.state.mouseEntered = true;
+    }
+
+    mouseout(event) {
+        this.state.mouseEntered = false;
     }
 
     render() {
         // Within render, we generate the html needed to render a proper MDC-Web checkbox.
         return (
-            <div ref="root" className={`mdc-checkbox ${this.state.classes.toJS().join(' ')}`}>
+            <div ref="root" className={`mdc-checkbox ${this.state.classes.toJS().join(' ')}`}
+                 onChange={this.changeHandler.bind(this)}
+                 onMouseEnter={this.mouseenter.bind(this)}>
                 <input ref="nativeCb"
                        id={this.props.id}
                        type="checkbox"
                        className="mdc-checkbox__native-control"
                        aria-labelledby={this.props.labelId}
                        disabled={this.state.disabledInternal}
-                       onChange={this.changeHandler.bind(this)}/>
+                       onMouseOut={this.mouseout.bind(this)}/>
                 <div className="mdc-checkbox__background">
                     <svg className="mdc-checkbox__checkmark"
                          viewBox="0 0 24 24">

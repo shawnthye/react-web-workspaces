@@ -7,7 +7,7 @@ const path = require('path');
 
 const OUT_PATH = path.resolve(__dirname, 'packages');
 const PUBLIC_PATH = '/assets/';
-const DEVTOOL = IS_DEV ? 'source-map' : false
+const DEVTOOL = IS_DEV ? 'source-map' : false;
 
 module.exports = [{
     name: 'js-components',
