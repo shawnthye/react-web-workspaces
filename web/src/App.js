@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Checkbox} from '@material-react-web/checkbox'
+import {Checkbox} from '@react.material/checkbox'
 
 class App extends Component {
     render() {

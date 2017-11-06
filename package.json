@@ -8,7 +8,7 @@
     "!postinstall": "yarn build && yarn build:min",
     "bootstrap": "yarn && lerna bootstrap",
     "clean": "del-cli packages/*/dist && lerna clean --yes",
-    "dist": "yarn clean && yarn build && yarn build:min && yarn",
+    "dist": "yarn && yarn clean && yarn build && yarn build:min",
     "start": "yarn dist && yarn bootstrap && lerna run --scope web start"
   },
   "devDependencies": {
