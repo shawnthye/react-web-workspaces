@@ -1,6 +1,6 @@
 {
   "private": true,
-  "description": "Material Components Web",
+  "description": "React Material Components Web",
   "license": "Apache-2.0",
   "scripts": {
     "build": "cross-env BABEL_ENV=development webpack --progress --colors",

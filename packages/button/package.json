@@ -1,5 +1,5 @@
 {
-  "name": "@material-react-web/button",
+  "name": "@react.material/button",
   "version": "0.1.0",
   "dependencies": {
     "@material/button": "^0.23.0",

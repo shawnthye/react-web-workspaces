@@ -1,11 +1,14 @@
 {
-  "name": "@material-react-web/checkbox",
+  "name": "@react.material/checkbox",
   "version": "0.1.0",
-  "main": "dist/index.js",
   "dependencies": {
     "@material/animation": "^0.4.1",
     "@material/checkbox": "^0.24.0",
     "@material/ripple": "^0.24.0",
     "immutable": "^3.8.2"
-  }
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js"
 }
