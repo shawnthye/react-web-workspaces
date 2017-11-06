@@ -5,7 +5,7 @@
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "dependencies": {
-    "@material-react-web/button": "^0.1.0",
-    "@material-react-web/checkbox": "^0.1.0"
+    "@react.material/button": "^0.1.0",
+    "@react.material/checkbox": "^0.1.0"
   }
 }

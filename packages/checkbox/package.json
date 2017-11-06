@@ -1,14 +1,27 @@
 {
   "name": "@react.material/checkbox",
   "version": "0.1.0",
+  "description": "The React Material Components for the web checkbox component",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ofgeo/react.material.git"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "material components",
+    "material design",
+    "checkbox",
+    "react",
+    "reactjs"
+  ],
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@material/animation": "^0.4.1",
     "@material/checkbox": "^0.24.0",
     "@material/ripple": "^0.24.0",
     "immutable": "^3.8.2"
-  },
-  "files": [
-    "dist"
-  ],
-  "main": "dist/index.js"
+  }
 }
