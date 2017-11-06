@@ -4,7 +4,7 @@
   "description": "The React Material Components for the web checkbox component",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ofgeo/react.material.git"
+    "url": "https://github.com/shawnthye/react-web-workspaces-blueprint.git"
   },
   "license": "Apache-2.0",
   "keywords": [

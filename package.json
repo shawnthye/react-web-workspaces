@@ -2,6 +2,10 @@
   "private": true,
   "description": "React Material Components Web",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shawnthye/react-web-workspaces-blueprint.git"
+  },
   "scripts": {
     "build": "cross-env BABEL_ENV=development webpack --progress --colors",
     "build:min": "cross-env BABEL_ENV=production webpack -p --progress --colors",
